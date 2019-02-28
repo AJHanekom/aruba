@@ -9,6 +9,9 @@ import { CustomerService } from "./services/customer.service";
 export class AppComponent {
   customerList: Customer[];
 
+  lat: number = 51.678418;
+  lng: number = 7.809007;
+
   constructor(public customerService: CustomerService) {
     this.customerService.customerList.subscribe(
       list => (this.customerList = list)
@@ -30,6 +33,6 @@ export class AppComponent {
 export interface Customer {
   Firstname: string;
   Surname: string;
-  long: string;
-  lat: string;
+  Lat: string;
+  Long: string;
 }

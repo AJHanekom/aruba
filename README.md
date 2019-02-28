@@ -8,11 +8,13 @@
 <!--DONE -->Create display for list of customers (Hardcoded array first.)
 <!--DONE -->bservable \$customerList implements CustomerService
 
+####TODO
+
 # Action bar
 
 ##Filter on distance (range input button - within \$distance)
 ##Arbitrary distance - create markers.
-#Integration with Angular Google Maps
+<!--DONE -->#Integration with Angular Google Maps
 
 <!--DONE --> Bonus 1
 > Bonus 2
@@ -25,6 +27,7 @@
 #Async Map
 #Very fancy - Upload file and update Json
 ##Review lesson on file uploads and how they can trigger functions.
+#Add API key to environments
 
 Frontend Developer at Aruba coding challenge Outline:
 

@@ -1,5 +1,25 @@
 <router-outlet></router-outlet>
 
+<div *ngIf="customerList">
+  <agm-map
+    [latitude]="this.customerList[0].Lat"
+    [longitude]="this.customerList[0].Long"
+    [zoom]="10"
+  >
+    <agm-marker
+      *ngFor="let customer of customerList"
+      [latitude]="customer.Lat"
+      [longitude]="customer.Long"
+    >
+      <agm-info-window>
+        <h3>
+          <strong>{{ customer.Firstname }} {{ customer.Surname }}</strong>
+        </h3>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+</div>
+
 <input type="text" (keyup)="searchInput($event)" />
 
 <pre>
