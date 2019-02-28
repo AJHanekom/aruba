@@ -1,27 +1,57 @@
-# Aruba
+# Aruba Challenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
+# A React Challenge in Angular :)
 
-## Development server
+#Layout - Header,Main,Footer
+#Routing - SPA
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+# Create display for list of customers (Hardcoded array first.)
+##Observable $customerList implements CustomerService
+# Action bar
+##Filter on distance (range input button - within $distance) 
+##Arbitrary distance - create markers.
+#Integration with Angular Google Maps
+>Bonus 1
+>Bonus 2
+#Figma design.
+##Posibility of Geofirex location library
+>Bonus 3
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+#Bonus
+#Fuzy Search on text (text input button - #search)
+#Async Map
+#Very fancy - Upload file and update Json
+##Review lesson on file uploads and how they can trigger functions.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Frontend Developer at Aruba coding challenge Outline:
 
-## Running unit tests
+We want to host an event and invite all of our customers who are located within a certain distance from the venue to attend. In order to do this, we would like you to create a website that displays a list of people on a map and can filter these people by their distance relative to an arbitrary pair of GPS coordinates.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Language
 
-## Running end-to-end tests
+Any language you are comfortable with, however, bonus if it’s in React or implemented as a SPA.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Tasks
+● Set up a localhost site accessible via the browser. <!-- DONE >
+● Given a list of people supplied in the JSON file, display them in a list.
+● Add a map to the site that shows a marker at each person’s location. <!-- Angular Google Maps >
 
-## Further help
+Bonus
+● Allow the user to filter the list of people with a fuzzy search input.
+○ This should update the map as well.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Notes
+● This code should be committed to some form of version control that can be shared. <!-- DONE >
+● It only needs to be runnable locally. <!-- DONE >
+● Your code should be production ready in that it is readable, maintainable and
+extendable. In other words from the perspective that other developers will one day need
+to add to it. <!-- DONE >
+
+○ It does not need to be production ready in terms of bundling, minification,
+deployment etc. <!-- Implemented >
+
+● Consideration should be given to the UI & UX of the page. <!-- Figma >
+
+● If you decide to leave out certain functionality, design, styling etc due to time please list this in your submission.
