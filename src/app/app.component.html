@@ -1,4 +1,7 @@
 <router-outlet></router-outlet>
+
+<input type="text" (keyup)="searchInput($event)" />
+
 <pre>
-    {{ this.customerList | async | json }}
+    {{ this.customerList | json }}
 </pre>

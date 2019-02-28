@@ -5,22 +5,23 @@
 #Layout - Header,Main,Footer
 #Routing - SPA
 
+<!--DONE -->Create display for list of customers (Hardcoded array first.)
+<!--DONE -->bservable \$customerList implements CustomerService
 
-# Create display for list of customers (Hardcoded array first.)
-##Observable $customerList implements CustomerService
 # Action bar
-##Filter on distance (range input button - within $distance) 
+
+##Filter on distance (range input button - within \$distance)
 ##Arbitrary distance - create markers.
 #Integration with Angular Google Maps
->Bonus 1
->Bonus 2
-#Figma design.
-##Posibility of Geofirex location library
->Bonus 3
 
+<!--DONE --> Bonus 1
+> Bonus 2
+> #Figma design.
+> ##Posibility of Geofirex location library
+> Bonus 3
 
 #Bonus
-#Fuzy Search on text (text input button - #search)
+<!--DONE -->  #Fuzy Search on text (text input button - #search)
 #Async Map
 #Very fancy - Upload file and update Json
 ##Review lesson on file uploads and how they can trigger functions.
