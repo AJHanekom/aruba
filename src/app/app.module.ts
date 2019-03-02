@@ -1,10 +1,9 @@
-import { BrowserModule } from "@angular/platform-browser";
+import { AgmCoreModule } from "@agm/core";
 import { NgModule } from "@angular/core";
-
+import { BrowserModule } from "@angular/platform-browser";
+import { environment } from "src/environments/environment";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-
-import { AgmCoreModule } from "@agm/core";
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,7 +11,7 @@ import { AgmCoreModule } from "@agm/core";
     BrowserModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyB2t4vJjlgmIPFeQDwr80GaWe1ag08lSKg"
+      apiKey: environment.GM_Key
     })
   ],
   providers: [],
