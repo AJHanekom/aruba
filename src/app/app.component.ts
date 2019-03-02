@@ -37,8 +37,12 @@ export class AppComponent {
     this.refreshDistance();
     this.customerList = this.customerList.filter(
       customer =>
-        customer.Firstname.includes(event.target.value.trim()) ||
-        customer.Surname.includes(event.target.value.trim())
+        customer.Firstname.toLowerCase().includes(
+          event.target.value.toLowerCase().trim()
+        ) ||
+        customer.Surname.toLowerCase().includes(
+          event.target.value.toLowerCase().trim()
+        )
     );
     this.refreshWithinRange();
   }
