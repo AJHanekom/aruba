@@ -2,23 +2,53 @@
 
 <div *ngIf="customerList">
   <agm-map
-    [latitude]="this.customerList[0].Lat"
-    [longitude]="this.customerList[0].Long"
-    [zoom]="10"
+    [latitude]="this.customerList[0]?.Lat"
+    [longitude]="this.customerList[0]?.Long"
+    [zoom]="11"
   >
     <agm-marker
       *ngFor="let customer of customerList"
       [latitude]="customer.Lat"
       [longitude]="customer.Long"
+      [opacity]="customer.Distance <= radius / 1000 ? 1 : 0.5"
+      [iconUrl]="userIcon"
     >
       <agm-info-window>
-        <h3>
-          <strong>{{ customer.Firstname }} {{ customer.Surname }}</strong>
-        </h3>
+        <strong>{{ customer.Firstname }} {{ customer.Surname }}</strong>
+
+        <div>Distance: {{ customer.Distance }} Km</div>
+        <div>Lat: {{ customer.Lat }}</div>
+        <div>Long: {{ customer.Long }}</div>
       </agm-info-window>
     </agm-marker>
+
+    <agm-marker
+      *ngFor="let customer of customerList"
+      [latitude]="lat"
+      [longitude]="lng"
+      [opacity]="customer.Distance <= radius / 1000 ? 1 : 0.4"
+      [iconUrl]="eventIcon"
+      [markerClickable]="false"
+    >
+    </agm-marker>
+
+    <agm-circle
+      (centerChange)="refreshCircle($event)"
+      (radiusChange)="updateCircleRadius($event)"
+      [latitude]="lat"
+      [longitude]="lng"
+      [radius]="radius"
+      [fillColor]="'black'"
+      [fillOpacity]="0.1"
+      [circleDraggable]="true"
+      [editable]="true"
+    >
+    </agm-circle>
   </agm-map>
 </div>
+{{ radius / 1000 }}
+{{ lat }}
+{{ lng }}
 
 <input type="text" (keyup)="searchInput($event)" />
 
