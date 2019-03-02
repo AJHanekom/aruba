@@ -15,7 +15,7 @@ export class AppComponent {
 
   lat: number = -33.9328;
   lng: number = 18.417189;
-  radius: number = 10000;
+  radius: number = 8000;
   eventIcon: any;
   userIcon: any;
 
@@ -81,6 +81,14 @@ export class AppComponent {
     }
     this.refreshWithinRange();
   }
+
+  setActive(customer) {
+    this.customerList.map(customer => {
+      customer.isActive = false;
+      return customer;
+    });
+    customer.isActive = true;
+  }
 }
 
 export interface Customer {
@@ -89,5 +97,5 @@ export interface Customer {
   Lat: string;
   Long: string;
   Distance?: number;
-  isActive: boolean;
+  isActive?: boolean;
 }
