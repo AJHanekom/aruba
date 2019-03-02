@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { CustomerService } from "./services/customer.service";
 import { point, distance, center } from "@turf/turf";
 import { forEach } from "@angular/router/src/utils/collection";
+import { customerList } from "./services/customerList";
 
 @Component({
   selector: "app-root",
@@ -10,6 +11,7 @@ import { forEach } from "@angular/router/src/utils/collection";
 })
 export class AppComponent {
   customerList: Customer[];
+  customersWithinRange: Customer[];
 
   lat: number = -33.9328;
   lng: number = 18.417189;
@@ -32,16 +34,27 @@ export class AppComponent {
 
   searchInput(event: any) {
     this.refreshList();
+    this.refreshDistance();
     this.customerList = this.customerList.filter(
       customer =>
         customer.Firstname.includes(event.target.value.trim()) ||
         customer.Surname.includes(event.target.value.trim())
     );
+    this.refreshWithinRange();
   }
 
   refreshList() {
     this.customerService.customerList.subscribe(
       list => (this.customerList = list)
+    );
+  }
+
+  refreshWithinRange() {
+    this.customersWithinRange = this.customerList.filter(
+      customer => customer.Distance <= this.radius / 1000
+    );
+    this.customersWithinRange = this.customersWithinRange.sort(
+      (a, b) => a.Distance - b.Distance
     );
   }
 
@@ -62,6 +75,7 @@ export class AppComponent {
         point([parseFloat(customer.Lat), parseFloat(customer.Long)])
       );
     }
+    this.refreshWithinRange();
   }
 }
 
@@ -70,5 +84,5 @@ export interface Customer {
   Surname: string;
   Lat: string;
   Long: string;
-  Distance: number;
+  Distance?: number;
 }
