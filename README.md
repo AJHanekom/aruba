@@ -15,7 +15,6 @@
 #Layout - Header,Main,Footer
 #Figma design.
 #Very fancy - Upload file and update Json
-#Review lesson on file uploads and how they can trigger functions.
 
 Frontend Developer at Aruba coding challenge Outline:
 
@@ -42,7 +41,7 @@ extendable. In other words from the perspective that other developers will one d
 to add to it. <!-- DONE >
 
 -- It does not need to be production ready in terms of bundling, minification,
-deployment etc. <!-- Implemented >
+deployment etc. <!-- DONE >
 
 -- Consideration should be given to the UI & UX of the page. <!-- Figma >
 

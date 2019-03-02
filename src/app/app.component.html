@@ -1,4 +1,16 @@
 <router-outlet></router-outlet>
+<div class="info">
+  <div>Radius: {{ radius / 1000 | number }}Km</div>
+  <div>Lat: {{ lat | number }}</div>
+  <div>Long: {{ lng | number }}</div>
+  <div>
+    Fuzzy Search
+    <input type="text" (keyup)="searchInput($event)" />
+  </div>
+
+  <div>Customers within Search: {{ customerList.length | json }}</div>
+  <div>Customers Within Range: {{ customersWithinRange.length | json }}</div>
+</div>
 
 <div *ngIf="customerList">
   <agm-map
@@ -16,7 +28,7 @@
       <agm-info-window>
         <strong>{{ customer.Firstname }} {{ customer.Surname }}</strong>
 
-        <div>Distance: {{ customer.Distance }} Km</div>
+        <div>Distance: {{ customer.Distance | number }} Km</div>
         <div>Lat: {{ customer.Lat }}</div>
         <div>Long: {{ customer.Long }}</div>
       </agm-info-window>
@@ -45,13 +57,21 @@
     >
     </agm-circle>
   </agm-map>
+
+  <table style="width:100%" *ngIf="customersWithinRange.length != 0">
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Distance</th>
+    </tr>
+    <tr *ngFor="let customer of customersWithinRange">
+      <td>{{ customer.Firstname }}</td>
+      <td>{{ customer.Surname }}</td>
+      <td>{{ customer.Lat }}</td>
+      <td>{{ customer.Long }}</td>
+      <td>{{ customer.Distance | number }}Km</td>
+    </tr>
+  </table>
 </div>
-{{ radius / 1000 }}
-{{ lat }}
-{{ lng }}
-
-<input type="text" (keyup)="searchInput($event)" />
-
-<pre>
-    {{ this.customerList | json }}
-</pre>
