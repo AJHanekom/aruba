@@ -1,33 +1,21 @@
 # Aruba Challenge
 
-# A React Challenge in Angular :)
+### A React Challenge in Angular :)
+
+<!--DONE --> #Routing - SPA
+<!--DONE --> Create display for list of customers (Hardcoded array first.)
+<!--DONE --> Observable \$customerList implements CustomerService
+<!--DONE --> Filter on distance (range input button - within \$distance)
+<!--DONE --> Arbitrary distance - create markers.
+<!--DONE --> Integration with Angular Google Maps
+<!--DONE --> Fuzy Search on text (text input button - #search)
+<!--DONE --> #Async Map
+<!--DONE --> #Add API key to environments
 
 #Layout - Header,Main,Footer
-#Routing - SPA
-
-<!--DONE -->Create display for list of customers (Hardcoded array first.)
-<!--DONE -->bservable \$customerList implements CustomerService
-
-####TODO
-
-# Action bar
-
-##Filter on distance (range input button - within \$distance)
-##Arbitrary distance - create markers.
-<!--DONE -->#Integration with Angular Google Maps
-
-<!--DONE --> Bonus 1
-> Bonus 2
-> #Figma design.
-> ##Posibility of Geofirex location library
-> Bonus 3
-
-#Bonus
-<!--DONE -->  #Fuzy Search on text (text input button - #search)
-#Async Map
+#Figma design.
 #Very fancy - Upload file and update Json
-##Review lesson on file uploads and how they can trigger functions.
-#Add API key to environments
+#Review lesson on file uploads and how they can trigger functions.
 
 Frontend Developer at Aruba coding challenge Outline:
 
@@ -38,24 +26,24 @@ Language
 Any language you are comfortable with, however, bonus if it’s in React or implemented as a SPA.
 
 Tasks
-● Set up a localhost site accessible via the browser. <!-- DONE >
-● Given a list of people supplied in the JSON file, display them in a list.
-● Add a map to the site that shows a marker at each person’s location. <!-- Angular Google Maps >
+-- Set up a localhost site accessible via the browser. <!-- DONE >
+-- Given a list of people supplied in the JSON file, display them in a list. <!-- DONE >
+-- Add a map to the site that shows a marker at each person’s location. <!-- DONE Angular Google Maps and Turf API >
 
 Bonus
-● Allow the user to filter the list of people with a fuzzy search input.
-○ This should update the map as well.
+-- Allow the user to filter the list of people with a fuzzy search input. <!-- DONE >
+-- This should update the map as well. <!-- DONE >
 
 Notes
-● This code should be committed to some form of version control that can be shared. <!-- DONE >
-● It only needs to be runnable locally. <!-- DONE >
-● Your code should be production ready in that it is readable, maintainable and
+-- This code should be committed to some form of version control that can be shared. <!-- DONE >
+-- It only needs to be runnable locally. <!-- DONE >
+-- Your code should be production ready in that it is readable, maintainable and
 extendable. In other words from the perspective that other developers will one day need
 to add to it. <!-- DONE >
 
-○ It does not need to be production ready in terms of bundling, minification,
+-- It does not need to be production ready in terms of bundling, minification,
 deployment etc. <!-- Implemented >
 
-● Consideration should be given to the UI & UX of the page. <!-- Figma >
+-- Consideration should be given to the UI & UX of the page. <!-- Figma >
 
-● If you decide to leave out certain functionality, design, styling etc due to time please list this in your submission.
+-- If you decide to leave out certain functionality, design, styling etc due to time please list this in your submission.
