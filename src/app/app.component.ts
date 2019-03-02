@@ -22,11 +22,11 @@ export class AppComponent {
   constructor(public customerService: CustomerService) {
     this.eventIcon = {
       url: "../../assets/event.svg",
-      scaledSize: { height: 80, width: 80 }
+      scaledSize: { height: 40, width: 40 }
     };
     this.userIcon = {
       url: "../../assets/user.svg",
-      scaledSize: { height: 40, width: 40 }
+      scaledSize: { height: 20, width: 20 }
     };
     this.refreshList();
     this.refreshDistance();

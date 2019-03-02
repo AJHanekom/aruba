@@ -1,4 +1,5 @@
 <router-outlet></router-outlet>
+
 <div class="info">
   <div>Radius: {{ radius / 1000 | number }}Km</div>
   <div>Lat: {{ lat | number }}</div>
@@ -16,7 +17,11 @@
   <agm-map
     [latitude]="this.customerList[0]?.Lat"
     [longitude]="this.customerList[0]?.Long"
-    [zoom]="11"
+    [zoom]="10"
+    [disableDoubleClickZoom]="true"
+    [gestureHandling]="false"
+    [streetViewControl]="false"
+    [zoomControl]="false"
   >
     <agm-marker
       *ngFor="let customer of customerList"
