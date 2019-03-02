@@ -1,22 +1,57 @@
 <router-outlet></router-outlet>
 
-<div id="info" class="box ">
-  <div>Radius: {{ radius / 1000 | number }}Km</div>
-  <div>Lat: {{ lat | number }}</div>
-  <div>Long: {{ lng | number }}</div>
-  <div>
-    Fuzzy Search
-    <input type="text" (keyup)="searchInput($event)" />
+<div id="marker" class="box">
+  <div>Radius: {{ radius / 1000 | number: "1.2-2" }} km</div>
+  <div>Latitude: {{ lat | number: "1.4-4" }}</div>
+  <div>Longitude: {{ lng | number: "1.4-4" }}</div>
+</div>
+
+<div id="results" class="box">
+  <div class="field is-grouped">
+    <div class="control is-expanded">
+      <input
+        class="input is-primary"
+        type="text"
+        (keyup)="searchInput($event)"
+        placeholder="Search"
+      />
+    </div>
+    <div class="control">
+      <div class="tag is-primary is-big">
+        {{ customersWithinRange.length }}
+      </div>
+    </div>
   </div>
 
-  <div>Customers within Search: {{ customerList.length | json }}</div>
-  <div>Customers Within Range: {{ customersWithinRange.length | json }}</div>
+  <table
+    class="table is-narrow is-hoverable"
+    *ngIf="customersWithinRange.length != 0"
+  >
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Distance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customersWithinRange">
+        <td>{{ customer.Firstname }}</td>
+        <td>{{ customer.Surname }}</td>
+        <td>{{ customer.Lat | number: "1.2-2" }}</td>
+        <td>{{ customer.Long | number: "1.2-2" }}</td>
+        <td>{{ customer.Distance | number: "1.1-1" }} km</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <div *ngIf="customerList">
   <agm-map
-    [latitude]="this.customerList[0]?.Lat"
-    [longitude]="this.customerList[0]?.Long"
+    [latitude]="-33.925788"
+    [longitude]="18.581984"
     [zoom]="10"
     [disableDoubleClickZoom]="true"
     [gestureHandling]="false"
@@ -30,12 +65,12 @@
       [opacity]="customer.Distance <= radius / 1000 ? 1 : 0.5"
       [iconUrl]="userIcon"
     >
-      <agm-info-window>
+      <agm-info-window [isOpen]="customer?.isActive">
         <strong>{{ customer.Firstname }} {{ customer.Surname }}</strong>
 
-        <div>Distance: {{ customer.Distance | number }} Km</div>
-        <div>Lat: {{ customer.Lat }}</div>
-        <div>Long: {{ customer.Long }}</div>
+        <div>Distance: {{ customer.Distance | number: "1.2-2" }} Km</div>
+        <div>Lat: {{ customer.Lat | number: "1.4-4" }}</div>
+        <div>Long: {{ customer.Long | number: "1.4-4" }}</div>
       </agm-info-window>
     </agm-marker>
 
@@ -62,25 +97,4 @@
     >
     </agm-circle>
   </agm-map>
-
-  <table
-    id="results"
-    class="table box is-narrow"
-    *ngIf="customersWithinRange.length != 0"
-  >
-    <tr>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Distance</th>
-    </tr>
-    <tr *ngFor="let customer of customersWithinRange">
-      <td>{{ customer.Firstname }}</td>
-      <td>{{ customer.Surname }}</td>
-      <td>{{ customer.Lat }}</td>
-      <td>{{ customer.Long }}</td>
-      <td>{{ customer.Distance | number }}Km</td>
-    </tr>
-  </table>
 </div>

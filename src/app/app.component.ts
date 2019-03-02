@@ -89,4 +89,5 @@ export interface Customer {
   Lat: string;
   Long: string;
   Distance?: number;
+  isActive: boolean;
 }

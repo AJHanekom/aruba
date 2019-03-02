@@ -12,10 +12,6 @@
 <!--DONE --> #Async Map
 <!--DONE --> #Add API key to environments
 
-#Layout - Header,Main,Footer
-#Figma design.
-#Very fancy - Upload file and update Json
-
 Frontend Developer at Aruba coding challenge Outline:
 
 We want to host an event and invite all of our customers who are located within a certain distance from the venue to attend. In order to do this, we would like you to create a website that displays a list of people on a map and can filter these people by their distance relative to an arbitrary pair of GPS coordinates.
@@ -27,7 +23,7 @@ Any language you are comfortable with, however, bonus if it’s in React or impl
 Tasks
 -- Set up a localhost site accessible via the browser. <!-- DONE >
 -- Given a list of people supplied in the JSON file, display them in a list. <!-- DONE >
--- Add a map to the site that shows a marker at each person’s location. <!-- DONE Angular Google Maps and Turf API >
+-- Add a map to the site that shows a marker at each person’s location. <!-- DONE >
 
 Bonus
 -- Allow the user to filter the list of people with a fuzzy search input. <!-- DONE >
@@ -43,6 +39,6 @@ to add to it. <!-- DONE >
 -- It does not need to be production ready in terms of bundling, minification,
 deployment etc. <!-- DONE >
 
--- Consideration should be given to the UI & UX of the page. <!-- Figma >
+-- Consideration should be given to the UI & UX of the page. <!-- DONE >
 
 -- If you decide to leave out certain functionality, design, styling etc due to time please list this in your submission.
