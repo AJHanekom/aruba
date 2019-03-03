@@ -16,7 +16,7 @@ export class AppComponent {
 
   lat: number = -33.9328;
   lng: number = 18.417189;
-  radius: number = 8000;
+  radius: number = 16000;
   eventIcon: any;
   userIcon: any;
   showModal = "";

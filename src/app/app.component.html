@@ -24,13 +24,12 @@
   <table
     class="table is-narrow is-hoverable"
     *ngIf="customersWithinRange.length != 0"
+    style="width:100%"
   >
     <thead>
       <tr>
         <th>Name</th>
         <th>Surname</th>
-        <!-- <th>Latitude</th>
-        <th>Longitude</th> -->
         <th>Distance</th>
       </tr>
     </thead>
@@ -42,26 +41,23 @@
       >
         <td>{{ customer.Firstname }}</td>
         <td>{{ customer.Surname }}</td>
-        <!-- <td>{{ customer.Lat | number: "1.2-2" }}</td>
-        <td>{{ customer.Long | number: "1.2-2" }}</td> -->
         <td>{{ customer.Distance | number: "1.1-1" }} km</td>
       </tr>
     </tbody>
   </table>
 
-  <div class="level">
-    <div class="level-left" *ngIf="customersWithinRange.length > 5">
+  <div>
+    <span style="float: left;" *ngIf="customersWithinRange.length > 5">
       {{ customersWithinRange.length - 5 }} more results..
-    </div>
-    <div class="level-right">
-      <button
-        *ngIf="!showModal"
-        class="button is-primary"
-        (click)="toggleModal()"
-      >
-        View Full List
-      </button>
-    </div>
+    </span>
+    <button
+      style="text-align: right;float: right;"
+      *ngIf="!showModal"
+      class="button is-primary"
+      (click)="toggleModal()"
+    >
+      View Full List
+    </button>
   </div>
 </div>
 
@@ -69,7 +65,7 @@
   <agm-map
     [latitude]="-33.9328"
     [longitude]="18.4172"
-    [zoom]="10"
+    [zoom]="9"
     [disableDoubleClickZoom]="true"
     [gestureHandling]="false"
     [streetViewControl]="false"
@@ -138,6 +134,7 @@
             <tr
               style="cursor: pointer;"
               *ngFor="let customer of customersWithinRange"
+              (click)="setActive(customer); toggleModal()"
             >
               <td>{{ customer.Firstname }}</td>
               <td>{{ customer.Surname }}</td>
