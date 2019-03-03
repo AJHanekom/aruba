@@ -23,7 +23,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss", "./node_modules/bulma/css/bulma.css"],
+            "styles": [
+              "./node_modules/bulma/css/bulma.css",
+              "src/styles.scss",
+              "src/bulma.scss"
+            ],
             "scripts": [],
             "es5BrowserSupport": true
           },

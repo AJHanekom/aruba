@@ -20,6 +20,7 @@
       </div>
     </div>
   </div>
+
   <table
     class="table is-narrow is-hoverable"
     *ngIf="customersWithinRange.length != 0"
@@ -28,25 +29,40 @@
       <tr>
         <th>Name</th>
         <th>Surname</th>
-        <th>Latitude</th>
-        <th>Longitude</th>
+        <!-- <th>Latitude</th>
+        <th>Longitude</th> -->
         <th>Distance</th>
       </tr>
     </thead>
     <tbody>
       <tr
         style="cursor: pointer;"
-        *ngFor="let customer of customersWithinRange"
+        *ngFor="let customer of (customersWithinRange | selectFive)"
         (click)="setActive(customer)"
       >
         <td>{{ customer.Firstname }}</td>
         <td>{{ customer.Surname }}</td>
-        <td>{{ customer.Lat | number: "1.2-2" }}</td>
-        <td>{{ customer.Long | number: "1.2-2" }}</td>
+        <!-- <td>{{ customer.Lat | number: "1.2-2" }}</td>
+        <td>{{ customer.Long | number: "1.2-2" }}</td> -->
         <td>{{ customer.Distance | number: "1.1-1" }} km</td>
       </tr>
     </tbody>
   </table>
+
+  <div class="level">
+    <div class="level-left" *ngIf="customersWithinRange.length > 5">
+      {{ customersWithinRange.length - 5 }} more results..
+    </div>
+    <div class="level-right">
+      <button
+        *ngIf="!showModal"
+        class="button is-primary"
+        (click)="toggleModal()"
+      >
+        View Full List
+      </button>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="customerList">
@@ -91,4 +107,59 @@
     >
     </agm-circle>
   </agm-map>
+
+  <div class="modal" [ngClass]="showModal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title  is-primary">Customers within range:</p>
+        <button
+          class="delete"
+          aria-label="close"
+          (click)="toggleModal()"
+        ></button>
+      </header>
+      <section class="modal-card-body">
+        <table
+          style="width:100%"
+          class="table is-narrow is-hoverable"
+          *ngIf="customersWithinRange.length != 0"
+        >
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Latitude</th>
+              <th>Longitude</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              style="cursor: pointer;"
+              *ngFor="let customer of customersWithinRange"
+            >
+              <td>{{ customer.Firstname }}</td>
+              <td>{{ customer.Surname }}</td>
+              <td>{{ customer.Lat | number: "1.2-2" }}</td>
+              <td>{{ customer.Long | number: "1.2-2" }}</td>
+              <td>{{ customer.Distance | number: "1.1-1" }} km</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="field is-grouped is-grouped-right">
+          <div class="control">
+            <button
+              *ngIf="showModal"
+              class="button is-primary"
+              (click)="toggleModal('rick')"
+            >
+              Invite List
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 </div>

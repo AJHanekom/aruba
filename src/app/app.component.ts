@@ -3,6 +3,7 @@ import { CustomerService } from "./services/customer.service";
 import { point, distance, center } from "@turf/turf";
 import { forEach } from "@angular/router/src/utils/collection";
 import { customerList } from "./services/customerList";
+import { routerNgProbeToken } from "@angular/router/src/router_module";
 
 @Component({
   selector: "app-root",
@@ -18,6 +19,7 @@ export class AppComponent {
   radius: number = 8000;
   eventIcon: any;
   userIcon: any;
+  showModal = "";
 
   constructor(public customerService: CustomerService) {
     this.eventIcon = {
@@ -30,6 +32,18 @@ export class AppComponent {
     };
     this.refreshList();
     this.refreshDistance();
+  }
+
+  toggleModal(rick?) {
+    if (this.showModal.length == 0) {
+      this.showModal = "is-active";
+    } else {
+      this.showModal = "";
+    }
+
+    if (rick) {
+      window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    }
   }
 
   searchInput(event: any) {
